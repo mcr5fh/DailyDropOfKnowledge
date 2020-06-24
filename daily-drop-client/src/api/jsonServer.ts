@@ -7,13 +7,14 @@ interface Database {
   updateRecord(recordType: string, recordData: Record<string, any>): Record<string, any>[];
 }
 
+const BASE_URL = 'https://9h119qdin3.execute-api.us-east-1.amazonaws.com/dev/'
 
 class LocalDb implements Database {
   conn: any;
   public constructor() {
     //Not sure if it's dumb to keep the connection open?
     this.conn = axios.create({
-      baseURL: "http://localhost:3005/v1"
+      baseURL: BASE_URL + "v1"
     });
     this.addRecord = this.addRecord.bind(this);
     this.describeRecords = this.describeRecords.bind(this);

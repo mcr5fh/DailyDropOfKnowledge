@@ -32,8 +32,6 @@ export const connect = function (): Promise<boolean> {
   });
 };
 
-connect();
-
 export const isDbConnected = function (): boolean {
   return isConnected;
 };
@@ -48,6 +46,9 @@ export const findDocument = async function (
   collectionName: string,
   payload: any
 ): Promise<any> {
+  if(!isDbConnected()) {
+    await connect();
+  }
   const collection = mongodb.collection(collectionName);
   return await collection.find(payload);
 };
@@ -56,6 +57,10 @@ export const insertDocument = async function (
   collectionName: string,
   payload: any
 ): Promise<InsertDocumentResponse> {
+  if(!isDbConnected()) {
+    await connect();
+  }
+  
   const collection = mongodb.collection(collectionName);
   const result = await collection.insertOne(payload);
   return {

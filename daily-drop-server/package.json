@@ -12,6 +12,7 @@
     "script": "cd src/scripts && ts-node",
     "start": "json-server -p 3001 -w db.json",
     "tsc": "tsc",
+    "deploy-dev": "tsc && serverless deploy",
     "dev": "ts-node-dev --respawn --transpileOnly -r esm src/scripts/seedDb.ts",
     "prod": "tsc && node ./build/app.js",
     "watch-ts": "tsc -w",
