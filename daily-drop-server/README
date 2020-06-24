@@ -1,0 +1,7 @@
+Questions
+
+- What is a mongoose model
+- how does typescript generics <> work?
+
+Knowledge
+- In TypeScript, two types are compatible if their internal structure is compatible
