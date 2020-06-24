@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import serverless from 'serverless-http';
 
 import * as readablesApi from "../mongodb/readables/readablesDao";
 import * as questionsApi from "../mongodb/questions/questionsDao";
@@ -75,8 +76,9 @@ app.post("/v1/questions", (req: Request, res: Response) =>
 
 app.set("port", process.env.PORT || 3005);
 
-const server = app.listen(app.get("port"), () => {
-  console.log("App is running on http://localhost:%d", app.get("port"));
-});
+// const server = app.listen(app.get("port"), () => {
+//   console.log("App is running on http://localhost:%d", app.get("port"));
+// });
 
 module.exports = app;
+module.exports.handler = serverless(app);

@@ -3,13 +3,12 @@ import { MongoClient, Db as MongoDb, ObjectId } from "mongodb";
 import dotenv from 'dotenv';
 dotenv.config();
 //URI is stored in .env file
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.MONGO_URI || "UNABLE TO LEAD URI";
 const MONGO_OPTIONS = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   poolSize: 10,
 };
-const client = new MongoClient(MONGO_URI, MONGO_OPTIONS);
 
 export const QUESTION_COLLECTION_NAME = "questions";
 export const TEST_COLLECTION_NAME = "createIndexExample1";
