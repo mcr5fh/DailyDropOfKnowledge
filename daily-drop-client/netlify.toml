@@ -1,4 +1,5 @@
 [build]
+  CI=''
   base    = "daily-drop-client"
   publish = "daily-drop-client/build"
   command = "npm run build"
