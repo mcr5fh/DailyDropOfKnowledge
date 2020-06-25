@@ -1,8 +1,7 @@
 [build]
-  CI=''
   base    = "daily-drop-client"
   publish = "build/"
-  command = "npm run build"
+  command = "CI='' npm run build"
 
 [[redirects]]
   from = "/*"
