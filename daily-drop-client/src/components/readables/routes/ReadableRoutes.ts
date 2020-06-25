@@ -1,5 +1,5 @@
 import { Component } from "react";
-import QuestionCreate from "../../questions/QuestionCreate";
+import QuestionCreate from "../../questions/components/QuestionCreate";
 
 interface RouteableComponent {
   readonly routePath: string;

@@ -7,13 +7,15 @@ const Header = () => {
   return (
     <div className="ui primary pointing menu">
       <Link to="/" className="item">
-        DailyDrop (of knowledge)
+        Readables
       </Link>
       <div className="right menu">
         <Link to="/" className="item">
           All Readables
         </Link>
-        <GoogleAuth />
+        <div className="item">
+          <GoogleAuth />
+        </div>
       </div>
     </div>
   );

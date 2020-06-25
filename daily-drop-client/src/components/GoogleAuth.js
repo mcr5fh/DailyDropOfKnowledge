@@ -11,7 +11,6 @@ class GoogleAuth extends React.Component {
     window.gapi.load("client:auth2", () => {
       window.gapi.client
         .init({
-          // key: "AIzaSyC_Rx__ELsqlQJvAVGTCsc2s5pGQCMdbm0",
           clientId: CLIENT_ID,
           scope: "email",
         })
@@ -57,12 +56,9 @@ class GoogleAuth extends React.Component {
   };
 
   renderAuthButton() {
-    //I don't like this null check, but odd to say not signed
+    //I don't like this null check, but odd to say not signed if we don't know yet
     if (this.props.isSignedIn === null) {
-      //Had this wierd race condition where this was needed for a bit because this.auth
-      //was not defined yet (from gapi). One solution (band-aid) was to check if
-      //} || this.auth === undefined) {
-      return null;
+      return <div>Loading..</div>;
     } else if (this.props.isSignedIn) {
       return this.renderSignOutButton();
     } else {

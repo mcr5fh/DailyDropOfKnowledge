@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import { Router, Route, Link, Switch } from "react-router-dom";
 
-import QuestionCreate from "./questions/QuestionCreate";
-import QuestionList from "./questions/QuestionList";
+import QuestionCreate from "./questions/components/QuestionCreate";
+import QuestionList from "./questions/components/QuestionList";
 import {
   NEW_QUESTION_ROUTE_FORMAT,
   NEW_QUESTION_COMPONENT,

@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createQuestion } from "../../actions";
+import { createQuestion } from "../../../actions";
 import QuestionForm from "./QuestionForm";
-import { DefaultQuestion } from "./model/QuestionModel";
+
 //Need this to get the readable title
-import { getReadable } from "../../actions/index";
+import { getReadable } from "../../../actions/index";
 
 class QuestionCreate extends React.Component {
   componentDidMount() {

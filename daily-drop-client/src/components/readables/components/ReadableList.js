@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { describeReadables } from "../../../actions";
 import { Link } from "react-router-dom";
-
+import { LoadingSegement } from "../../loading/LoadingSegment";
 // We want this to be a class because we want to call the reducer in
 // componentDidMount
 class ReadableList extends React.Component {
@@ -79,12 +79,18 @@ class ReadableList extends React.Component {
   }
   render() {
     if (this.state.hasError) {
-      return <div> Opps! </div>;
+      return <div> Opps! This is awkward... Something went wrong :( </div>;
     }
     return (
       <div>
         <h2>Daily Readables</h2>
-        <div className="ui celled list">{this.renderList()}</div>
+
+        {this.props.readables ? (
+          <div className="ui celled list">{this.renderList()}</div>
+        ) : (
+          <LoadingSegement />
+        )}
+
         {this.renderCreateButton()}
       </div>
     );

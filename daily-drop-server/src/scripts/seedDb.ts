@@ -1,4 +1,8 @@
 "use strict";
+/**
+ * This was a test script to attempt to seed the database from a JSON file. 
+ * Didn't work great and can use a lot of work
+ */
 import { ObjectId } from "mongodb";
 
 import { Readable,DefaultReadable } from "../mongodb/readables/readableSchema";
