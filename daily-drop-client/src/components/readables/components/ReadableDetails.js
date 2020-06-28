@@ -6,6 +6,7 @@ import _ from "lodash";
 import { getQuestionsForReadable } from "../../../actions/index";
 
 import { NewQuestionRoute } from "../routes/ReadableRoutes";
+// import QuestionCard from "../../questions/components/QuestionCard";
 
 // We want this to be a class because we want to call the reducer in
 // componentDidMount
@@ -27,7 +28,6 @@ class ReadableDetails extends React.Component {
         </div>
       );
     }
-
     return this.props.questions
       .sort((q1, q2) => (q1.dateAdded > q2.dateAdded ? 1 : -1))
       .map((question) => {

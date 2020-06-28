@@ -20,6 +20,7 @@
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
     "redux-thunk": "^2.3.0",
+    "semantic-ui-react": "^0.88.2",
     "typescript": "^3.7.5"
   },
   "scripts": {

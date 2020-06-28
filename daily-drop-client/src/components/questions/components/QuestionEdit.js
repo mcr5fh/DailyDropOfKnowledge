@@ -4,8 +4,6 @@ import QuestionForm from "./QuestionForm";
 import { getQuestion, editQuestion } from "../../../actions/index";
 
 //TODO: Make this a typescript file
-// import { DefaultQuestion } from "../model/QuestionModel";
-
 class QuestionEdit extends React.Component {
   componentWillMount() {
     this.props.getQuestion(this.props.match.params.id);
@@ -23,7 +21,7 @@ class QuestionEdit extends React.Component {
     const questionId = this.props.question.id;
     this.props.editQuestion(questionId, formValues);
     //After a user creates a Question, we will send them back to the Question list
-    //via Programatic (as opposed to intentional (user) navigation) via the action creator
+    //via history in the action
   };
 
   render() {

@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { describeReadables } from "../../../actions";
 import { Link } from "react-router-dom";
-import { LoadingSegement } from "../../loading/LoadingSegment";
+import { LoadingSegement } from "../../general/LoadingSegment";
 // We want this to be a class because we want to call the reducer in
 // componentDidMount
 class ReadableList extends React.Component {
@@ -77,21 +77,28 @@ class ReadableList extends React.Component {
       console.log("Not signed, not rendering new readable button");
     }
   }
+
   render() {
+    let content;
     if (this.state.hasError) {
-      return <div> Opps! This is awkward... Something went wrong :( </div>;
+      content = <div> Opps! This is awkward... Something went wrong :( </div>;
+    } else if (!this.props.isSignedIn) {
+      content = <div>Please sign in to see the Readables</div>;
+    } else {
+      content = this.props.readables ? (
+        <div className="ui celled list">
+          {this.renderList()}
+          {this.renderCreateButton()}
+        </div>
+      ) : (
+        <LoadingSegement />
+      );
     }
+
     return (
       <div>
         <h2>Daily Readables</h2>
-
-        {this.props.readables ? (
-          <div className="ui celled list">{this.renderList()}</div>
-        ) : (
-          <LoadingSegement />
-        )}
-
-        {this.renderCreateButton()}
+        {content}
       </div>
     );
   }
