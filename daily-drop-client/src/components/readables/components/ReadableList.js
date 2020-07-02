@@ -82,8 +82,8 @@ class ReadableList extends React.Component {
     let content;
     if (this.state.hasError) {
       content = <div> Opps! This is awkward... Something went wrong :( </div>;
-    } else if (!this.props.isSignedIn) {
-      content = <div>Please sign in to see the Readables</div>;
+      // } else if (!this.props.isSignedIn) {
+      //   content = <div>Please sign in to see the Readables</div>;
     } else {
       content = this.props.readables ? (
         <div className="ui celled list">

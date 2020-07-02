@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { Button, Divider, Image, Transition } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 
 import { getQuestionsForReadable } from "../../../actions";
 import ShowHide from "../../general/ShowHide";
@@ -12,6 +14,11 @@ class QuestionList extends React.Component {
     // You can also log the error to an error reporting service
     console.log(error, errorInfo);
   }
+
+  state = { isVisible: false };
+
+  toggleVisibility = () =>
+    this.setState((prevState) => ({ isVisible: !prevState.isVisible }));
 
   renderQuestionOwnerButtons() {
     // if (questionData.userId === this.props.currentUserId) {
@@ -30,27 +37,47 @@ class QuestionList extends React.Component {
   }
 
   renderQuestionDetails() {
+    const hideText = "Hide Answer";
+    const showText = "Show Answer";
+    const question = this.props.question;
     return (
       <div className="item" key={this.props.question.id}>
-        <i className="large middle aligned icon question circle outline" />
-        <div className="middle aligned content">
-          <div className="chapter">{this.props.question.chapter}</div>
-          {/* question title should be clickable; owner should have options to edit or delete their own questions */}
-          <b>Question: {this.props.question.question}</b>
-        </div>
-        <ShowHide
-          component={
-            <div className="answer">Answer: {this.props.question.answer}</div>
-          }
-          content="Answer"
-        />
-        {/* {this.renderQuestionOwnerButtons()} */}
+        <Grid columns={2}>
+          <Grid.Row>
+            <Grid.Column>
+              <i className="large middle aligned icon question circle outline" />
+              <div className="ui content">
+                <div className="chapter">{this.props.question.chapter}</div>
+                {/* question title should be clickable; owner should have options to edit or delete their own questions */}
+                <b>Question: {this.props.question.question}</b>
+                <ShowHide
+                  component={
+                    <div className="answer">
+                      Answer: {this.props.question.answer}
+                    </div>
+                  }
+                  content="Answer"
+                  isVisible={this.state.isVisible}
+                />
+                {this.renderQuestionOwnerButtons()}
+              </div>
+            </Grid.Column>
+            <Grid.Column>
+              <div className="right floated content">
+                <Button
+                  content={this.state.isVisible ? hideText : showText}
+                  onClick={this.toggleVisibility}
+                />
+              </div>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </div>
     );
   }
 
   render() {
-    return <div>{this.renderQuestionDetails()}</div>;
+    return this.renderQuestionDetails();
   }
 }
 

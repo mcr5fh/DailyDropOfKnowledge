@@ -6,6 +6,7 @@ import _ from "lodash";
 import { getQuestionsForReadable } from "../../../actions/index";
 
 import { NewQuestionRoute } from "../routes/ReadableRoutes";
+import QuestionCard from "../../questions/components/QuestionCard";
 // import QuestionCard from "../../questions/components/QuestionCard";
 
 // We want this to be a class because we want to call the reducer in
@@ -32,15 +33,18 @@ class ReadableDetails extends React.Component {
       .sort((q1, q2) => (q1.dateAdded > q2.dateAdded ? 1 : -1))
       .map((question) => {
         return (
-          <div className="item" key={question.id}>
-            <i className="large middle aligned icon question circle outline" />
-            <div className="content">
-              <div className="chapter">{question.chapter}</div>
-              {/* question title should be clickable; owner should have options to edit or delete their own questions */}
-              <b>Question: {question.question}</b>
-              <div className="answer">Answer: {question.answer}</div>
-            </div>
+          <div className="ui celled list">
+            <QuestionCard question={question} />
           </div>
+          // <div className="item" key={question.id}>
+          //   <i className="large middle aligned icon question circle outline" />
+          //   <div className="content">
+          //     <div className="chapter">{question.chapter}</div>
+          //     {/* question title should be clickable; owner should have options to edit or delete their own questions */}
+          //     <b>Question: {question.question}</b>
+          //     <div className="answer">Answer: {question.answer}</div>
+          //   </div>
+          // </div>
         );
       });
   }
@@ -79,7 +83,7 @@ class ReadableDetails extends React.Component {
           {_.startCase(this.props.readable.type)}: {this.props.readable.title}
         </h3>
 
-        <div className="ui celled list">{this.renderQuestions()}</div>
+        {this.renderQuestions()}
         {this.renderNewQuestionButton()}
       </div>
     );

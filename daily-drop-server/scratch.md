@@ -138,3 +138,12 @@ class LocalMongoClient {
     });
   }
 }
+
+
+
+
+ <Transition
+            visible={bool}
+            animation="vertical flip"//slide up
+            duration={2000}
+          >

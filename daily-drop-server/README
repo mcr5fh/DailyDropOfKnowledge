@@ -5,9 +5,25 @@ reload with every change you have.
 
 To deploy, just run `serverless deploy`
 
-TODO: 
+TODO (not in order): 
+
+Back end tuning: 
+* Create a solid 'seed datbase' script
 * Made a prod/dev deployment set up
 * Clean up the code
+* Add request ids 
+
+Front end tuning: 
+* Clean up the code
+* Correctly order chapters
+* Maybe add creator id?
+* Gate adding questions to the readable owner
+* Add a hide/show to the questions/answers
+* Add request ids 
+
+New Features:
+* Allow for email subscriptions
+* Allow for a way to take notes
 
 
 
