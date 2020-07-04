@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
 const CLIENT_ID =
-  "191430266122-liej0s4agtp0u31ljmjp5sgkpomre41d.apps.googleusercontent.com";
+  "683132884453-293maam7a5v08cgimsmckhqoumugr59k.apps.googleusercontent.com";
 
 class GoogleAuth extends React.Component {
   componentDidMount() {
