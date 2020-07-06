@@ -5,6 +5,7 @@ export interface Readable {
   readonly description: string;
   readonly type: string; //could be enum
   readonly id: any;
+  readonly creatorId: any;
   readonly yearPublished?: string;
   readonly dateAdded?: string;
 }
@@ -15,7 +16,7 @@ export class DefaultReadable implements Readable {
   description!: string;
   type!: string;
   id!: any;
-  ownerId!: any;
+  creatorId!: any;
   yearPublished?: string | undefined;
   dateAdded?: string;
 
@@ -24,7 +25,7 @@ export class DefaultReadable implements Readable {
     this.author = object.author;
     this.description = object.description;
     this.type = object.type;
-    this.ownerId = object.ownerId;
+    this.creatorId = object.creatorId;
     //TODO: Sort this out 
     this.id = object._id ? object._id : object.id;
     this.yearPublished = object.yearPublished;

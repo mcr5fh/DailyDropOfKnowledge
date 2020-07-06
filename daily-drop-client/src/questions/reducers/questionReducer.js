@@ -5,6 +5,10 @@ import {
   EDIT_QUESTION,
   GET_QUESTIONS_FOR_READABLE,
 } from "../actions/questionActionTypes";
+import { DefaultReadable } from "../../readables/model/ReadableModel";
+import { DefaultQuestion } from "../model/QuestionModel";
+
+// import {DefaultReadable }
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -15,8 +19,10 @@ export default (state = {}, action) => {
       return newState;
     case GET_QUESTIONS_FOR_READABLE:
       const curData = {
-        curReadable: action.payload.readable,
-        curQuestions: action.payload.questions,
+        curReadable: new DefaultReadable(action.payload.readable),
+        curQuestions: action.payload.questions.map(
+          (q) => new DefaultQuestion(q)
+        ),
       };
       return { ...state, ...curData };
     case DESCRIBE_QUESTIONS:
