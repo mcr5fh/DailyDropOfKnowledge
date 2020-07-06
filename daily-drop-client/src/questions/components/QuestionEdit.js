@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import QuestionForm from "./QuestionForm";
-import { getQuestion, editQuestion } from "../../actions/index";
+import { getQuestion, editQuestion } from "../../readables/actions";
 
 //TODO: Make this a typescript file
 class QuestionEdit extends React.Component {

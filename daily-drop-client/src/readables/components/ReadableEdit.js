@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import ReadableForm from "./ReadableForm";
-import { getReadable, editReadable } from "../../actions";
+import { getReadable, editReadable } from "../actions";
 
 //TODO: Make this a typescript file
 // import { DefaultReadable } from "../model/ReadableModel";

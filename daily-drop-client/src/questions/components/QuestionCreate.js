@@ -4,7 +4,7 @@ import { createQuestion } from "../actions/questionsActions";
 import QuestionForm from "./QuestionForm";
 
 //Need this to get the readable title
-import { getReadable } from "../../actions/index";
+import { getReadable } from "../../readables/actions";
 
 class QuestionCreate extends React.Component {
   componentDidMount() {

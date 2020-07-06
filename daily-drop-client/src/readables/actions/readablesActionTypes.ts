@@ -1,0 +1,9 @@
+
+enum ReadableActionType {
+    CREATE_READABLE = "CREATE_READABLE",
+    DESCRIBE_READABLES = "DESCRIBE_READABLES",
+    GET_READABLE = "GET_READABLE",
+    EDIT_READABLE = "EDIT_READABLE"
+}
+
+export default ReadableActionType;

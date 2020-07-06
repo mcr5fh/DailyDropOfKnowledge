@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
-import { getQuestionsForReadable } from "../../actions";
+import { getQuestionsForReadable } from "../../questions/actions/questionsActions";
 
 import { NewQuestionRoute } from "../routes/ReadableRoutes";
 // import QuestionCard from "../../questions/components/QuestionCard";

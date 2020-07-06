@@ -1,6 +1,7 @@
 import {
   CREATE_QUESTION,
   DESCRIBE_QUESTIONS,
+  GET_QUESTIONS_FOR_READABLE,
   EDIT_QUESTION,
 } from "./questionActionTypes";
 import LocalDb from "../../api/jsonServer";
@@ -37,6 +38,18 @@ export const describeQuestions = (filter: object) => async (dispatch: any) => {
     type: DESCRIBE_QUESTIONS,
     payload: response,
   });
+};
+
+export const getQuestionsForReadable =  (readableId: string) => async (dispatch: any) => {
+  // describeQuestions({ readableId })
+  console.log("getQuestionsForReadable: readableId: ", readableId);
+    const response = await localDb.getRecordsForReadble(readableId);
+    
+    console.log("getQuestionsForReadable resp: ", response);
+    dispatch({
+      type: GET_QUESTIONS_FOR_READABLE,
+      payload: response.data
+    });
 };
 
 export const editQuestion = (id: string, formValues: any) => {
