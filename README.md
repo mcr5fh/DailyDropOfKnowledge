@@ -13,6 +13,7 @@ https://max2c.com/learning-how-to-learn/
 
 https://www.td.org/insights/spaced-learning-an-approach-to-minimize-the-forgetting-curve
 
+https://quantum.country/qcvc
 
 ## Dev
 See the package specific READMEs for info on running locally and deploying.
@@ -22,15 +23,19 @@ Google Sign on config - https://console.developers.google.com/
 
 ## Roadmap
 - Look into Medium pay model, users get X articles for free. Article writers get paid for # of views
-- Some sort of front end/back end integration tests
 
-### Overall Features
+### Features 
 - Subscribe to questions that are asked at an increasing cadence
 - Make an "about" page with the readme info about spaced learning (and get more articles)
+- Integrate note taking an any way?
+- Subscribe your single sign on email to an email
+- Some sort of front end/back end integration tests
+
 
 ### Front end small fix ups/features
+**High priority**
 - Add a delete button (if owner)
-- Only allow the Readable owner to add questions
+- Hook up edit button (hooks are there)
 - Create readable: change description to author 
 - Make type a drop down 
 - Show/Hide the answers to the questions
@@ -38,23 +43,29 @@ Google Sign on config - https://console.developers.google.com/
 - Change date to date added (in months) 
 - Change Readable type to icon 
 
-- When switching between readablesDetails, the questions from the last readable are rendered for a split second, then the correct readables data shows up 
-
+**Medium priority**
 - categorize ReadablesList by type (books) 
 - My readables and Recently added sections
 - Add genres/tags 
 - Category level right/wrong 
 
+**Low priority**
+- Make this work on Mobile
 - Can you pull cover art and link on search 
 
 ### Back end
-- Create Dev back end stack
+**High priority**
 - Create database seed script
-- Add uuid request id
-- 
-- Subscribe your single sign on email to an email
 
-Integrate note taking an any way?
+**Medium priority**
+- Create Dev back end stack
+
+**Low priority**
+- Add uuid request id
 
 ## Current Bugs
 - Order the chapters
+- When switching between readablesDetails, the questions from the last readable are rendered for a split second, then the correct readables data shows up 
+
+# Completed features
+- Only allow the Readable owner to add questions
