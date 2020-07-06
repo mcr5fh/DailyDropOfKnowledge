@@ -4,7 +4,7 @@ import {
   DESCRIBE_READABLES,
   GET_READABLE,
   EDIT_READABLE,
-} from "../../../actions/types";
+} from "../../actions/types";
 
 import { DefaultReadable } from "../model/ReadableModel";
 

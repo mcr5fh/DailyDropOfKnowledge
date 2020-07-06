@@ -1,4 +1,3 @@
-// import  {ObjectId} from "mongodb";
 
 export interface Readable {
   readonly title: string;

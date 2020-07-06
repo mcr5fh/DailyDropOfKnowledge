@@ -2,8 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { getQuestionsForReadable } from "../../../actions";
-import ShowHide from "../../general/ShowHide";
+import { getQuestionsForReadable } from "../../actions";
+import ShowHide from "../../util/components/ShowHide";
 
 // We want this to be a class because we want to call the reducer in
 // componentDidMount

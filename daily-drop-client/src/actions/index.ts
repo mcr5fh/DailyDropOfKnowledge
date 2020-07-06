@@ -1,20 +1,16 @@
 import {
   SIGN_IN,
   SIGN_OUT,
-  CREATE_QUESTION,
-  DESCRIBE_QUESTIONS,
-  EDIT_QUESTION,
-  GET_QUESTIONS_FOR_READABLE,
-
   CREATE_READABLE,
+  GET_QUESTIONS_FOR_READABLE,
   DESCRIBE_READABLES,
   GET_READABLE,
   EDIT_READABLE,
 } from "./types";
 import LocalDb from "../api/jsonServer";
 import history from "../history";
-import { DefaultReadable, Readable } from "../components/readables/model/ReadableModel";
-import { DefaultQuestion, Question } from "../components/questions/model/QuestionModel";
+import { DefaultReadable, Readable } from "../readables/model/ReadableModel";
+import { DefaultQuestion, Question } from "../questions/model/QuestionModel";
 
 const localDb = new LocalDb();
 
@@ -31,33 +27,6 @@ export const signOut = () => {
   };
 };
 
-//We want to route the user back to the Stream list
-export const createQuestion = (formValues: any) => {
-  return async (dispatch: any, getState: any) => {
-    const { userId } = getState().auth;
-    const readableId = formValues.readableId;
-    const newQuestion: Question = new DefaultQuestion({ ...formValues, creatorId: userId });
-    console.log("createQuestion req", newQuestion);
-    const response = await localDb.addRecord("questions", newQuestion);
-    console.log("createQuestion resp", response);
-    dispatch({
-      type: CREATE_QUESTION,
-      payload: response.data
-    });
-    history.push(`/readables/${readableId}`);
-  };
-};
-
-export const describeQuestions = (filter: object) => async (dispatch: any) => {
-  console.log("describeQuestions: filter: ", filter);
-  const response = await localDb.describeRecords("questions", filter);
-  console.log("describeQuestions resp: ", response);
-  dispatch({
-    type: DESCRIBE_QUESTIONS,
-    payload: response
-  });
-};
-
 export const getQuestionsForReadable =  (readableId: string) => async (dispatch: any) => {
   // describeQuestions({ readableId })
   console.log("getQuestionsForReadable: readableId: ", readableId);
@@ -68,19 +37,6 @@ export const getQuestionsForReadable =  (readableId: string) => async (dispatch:
       type: GET_QUESTIONS_FOR_READABLE,
       payload: response.data
     });
-};
-
-export const editQuestion = (id: string, formValues: any) => {
-  return async (dispatch: any) => {
-    //Patch will only update SOME properties, not ALL
-    const response = await localDb.updateRecord(`questions/${id}`, formValues);
-    console.log("editQuestion response: ", response);
-    dispatch({
-      type: EDIT_QUESTION,
-      payload: response.data
-    });
-    history.push(`/readables/${formValues.readableId}`);
-  };
 };
 
 /*

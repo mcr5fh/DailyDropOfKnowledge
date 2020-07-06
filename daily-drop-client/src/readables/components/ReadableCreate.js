@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createReadable } from "../../../actions";
+import { createReadable } from "../../actions";
 import ReadableForm from "./ReadableForm";
 
 class ReadableCreate extends React.Component {

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 
-import { getQuestionsForReadable } from "../../../actions/index";
+import { getQuestionsForReadable } from "../../actions";
 
 import { NewQuestionRoute } from "../routes/ReadableRoutes";
 // import QuestionCard from "../../questions/components/QuestionCard";
@@ -51,7 +51,10 @@ class ReadableDetails extends React.Component {
       this.getReadableId(),
       this.props.readable.name
     );
-    if (this.props.isSignedIn) {
+    if (
+      this.props.isSignedIn &&
+      this.props.currentUserId === this.props.readable.creatorId
+    ) {
       return (
         <div style={{ textAlign: "right" }}>
           <Link to={newQuestionRoute.routePath} className="ui green button">
@@ -60,7 +63,9 @@ class ReadableDetails extends React.Component {
         </div>
       );
     } else {
-      console.log("Not rendering create button");
+      console.log(
+        "Not rendering create button because user is not signed in or user does not own this readable"
+      );
     }
   }
 

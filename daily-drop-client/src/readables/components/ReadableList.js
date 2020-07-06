@@ -1,8 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { describeReadables } from "../../../actions";
+import { describeReadables } from "../../actions";
 import { Link } from "react-router-dom";
-import { LoadingSegement } from "../../general/LoadingSegment";
+import { LoadingSegement } from "../../util/components/LoadingSegment";
 // We want this to be a class because we want to call the reducer in
 // componentDidMount
 class ReadableList extends React.Component {

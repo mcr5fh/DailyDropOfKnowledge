@@ -4,7 +4,7 @@ import {
   DESCRIBE_QUESTIONS,
   EDIT_QUESTION,
   GET_QUESTIONS_FOR_READABLE,
-} from "../../../actions/types";
+} from "../actions/questionActionTypes";
 
 export default (state = {}, action) => {
   switch (action.type) {
