@@ -1,4 +1,0 @@
-export const SIGN_IN = "SIGN_IN";
-export const SIGN_OUT = "SIGN_OUT";
-
-export const GET_QUESTIONS_FOR_READABLE ="GET_QUESTIONS_FOR_READABLE";

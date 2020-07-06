@@ -1,11 +1,6 @@
-import {
-  CREATE_QUESTION,
-  DESCRIBE_QUESTIONS,
-  GET_QUESTIONS_FOR_READABLE,
-  EDIT_QUESTION,
-} from "./questionActionTypes";
 import LocalDb from "../../api/jsonServer";
 import history from "../../history";
+import QuestionActionType from "./actionTypes";
 import { DefaultQuestion, Question } from "../model/QuestionModel";
 
 const localDb = new LocalDb();
@@ -23,7 +18,7 @@ export const createQuestion = (formValues: any) => {
     const response = await localDb.addRecord("questions", newQuestion);
     console.log("createQuestion resp", response);
     dispatch({
-      type: CREATE_QUESTION,
+      type: QuestionActionType.CREATE_QUESTION,
       payload: response.data,
     });
     history.push(`/readables/${readableId}`);
@@ -35,7 +30,7 @@ export const describeQuestions = (filter: object) => async (dispatch: any) => {
   const response = await localDb.describeRecords("questions", filter);
   console.log("describeQuestions resp: ", response);
   dispatch({
-    type: DESCRIBE_QUESTIONS,
+    type: QuestionActionType.DESCRIBE_QUESTIONS,
     payload: response,
   });
 };
@@ -47,7 +42,7 @@ export const getQuestionsForReadable =  (readableId: string) => async (dispatch:
     
     console.log("getQuestionsForReadable resp: ", response);
     dispatch({
-      type: GET_QUESTIONS_FOR_READABLE,
+      type: QuestionActionType.GET_QUESTIONS_FOR_READABLE,
       payload: response.data
     });
 };
@@ -58,7 +53,7 @@ export const editQuestion = (id: string, formValues: any) => {
     const response = await localDb.updateRecord(`questions/${id}`, formValues);
     console.log("editQuestion response: ", response);
     dispatch({
-      type: EDIT_QUESTION,
+      type: QuestionActionType.EDIT_QUESTION,
       payload: response.data,
     });
     history.push(`/readables/${formValues.readableId}`);

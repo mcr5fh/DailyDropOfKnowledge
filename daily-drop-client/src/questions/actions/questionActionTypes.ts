@@ -1,4 +1,0 @@
-export const CREATE_QUESTION: string = "CREATE_QUESTION";
-export const DESCRIBE_QUESTIONS: string = "DESCRIBE_QUESTIONS";
-export const EDIT_QUESTION: string = "EDIT_QUESTION";
-export const GET_QUESTIONS_FOR_READABLE: string ="GET_QUESTIONS_FOR_READABLE";

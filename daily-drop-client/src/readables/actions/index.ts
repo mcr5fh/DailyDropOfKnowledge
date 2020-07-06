@@ -3,7 +3,7 @@ import history from "../../history";
 import LocalDb from "../../api/jsonServer";
 
 import { DefaultReadable, Readable } from "../model/ReadableModel";
-import ReadableActionType from "./readablesActionTypes";
+import ReadableActionType from "./actionTypes";
 
 const localDb = new LocalDb();
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createQuestion } from "../actions/questionsActions";
+import { createQuestion } from "../actions";
 import QuestionForm from "./QuestionForm";
 
 //Need this to get the readable title

@@ -1,5 +1,5 @@
 import _ from "lodash";
-import ReadableActionType from "../actions/readablesActionTypes";
+import ReadableActionType from "../actions/actionTypes";
 
 import { DefaultReadable } from "../model/ReadableModel";
 

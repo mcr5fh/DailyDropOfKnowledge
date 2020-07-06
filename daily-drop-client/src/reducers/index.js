@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import { reducer as reduxFormReducer } from "redux-form";
-import authReducer from "./authReducer";
+import authReducer from "../auth/reducers/authReducer";
 import questionReducer from "../questions/reducers/questionReducer";
 import readablesReducer from "../readables/reducers/readablesReducer";
 

@@ -22,12 +22,14 @@ Google Sign on config - https://console.developers.google.com/
 
 ## Roadmap
 - Look into Medium pay model, users get X articles for free. Article writers get paid for # of views
+- Some sort of front end/back end integration tests
 
 ### Overall Features
 - Subscribe to questions that are asked at an increasing cadence
 - Make an "about" page with the readme info about spaced learning (and get more articles)
 
 ### Front end small fix ups/features
+- Add a delete button (if owner)
 - Only allow the Readable owner to add questions
 - Create readable: change description to author 
 - Make type a drop down 
@@ -35,6 +37,8 @@ Google Sign on config - https://console.developers.google.com/
 - Default to hidden , question level show as v2 
 - Change date to date added (in months) 
 - Change Readable type to icon 
+
+- When switching between readablesDetails, the questions from the last readable are rendered for a split second, then the correct readables data shows up 
 
 - categorize ReadablesList by type (books) 
 - My readables and Recently added sections
