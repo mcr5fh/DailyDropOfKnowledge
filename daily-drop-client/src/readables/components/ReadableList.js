@@ -28,9 +28,9 @@ class ReadableList extends React.Component {
     // if (readableData.creatorId === this.props.currentUserId) {
     return (
       <div className="right floated content">
-        <Link to={`/readables/edit/${readableData.id}`} className="ui button">
+        {/* <Link to={`/readables/edit/${readableData.id}`} className="ui button">
           Edit Readable
-        </Link>
+        </Link> */}
         {/* TODO: Move these links to constants or something */}
         <Link to={`/readables/${readableData.id}`} className="ui green button">
           View Questions
