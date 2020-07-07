@@ -33,9 +33,9 @@ class ReadableDetails extends React.Component {
       .sort((q1, q2) => (q1.dateAdded > q2.dateAdded ? 1 : -1))
       .map((question) => {
         return (
-          <div className="ui celled list">
-            <QuestionCard question={question} />
-          </div>
+          // <div className="ui celled list">
+          <QuestionCard question={question} key={question.id} />
+          // </div>
           // <div className="item" key={question.id}>
           //   <i className="large middle aligned icon question circle outline" />
           //   <div className="content">
@@ -87,8 +87,8 @@ class ReadableDetails extends React.Component {
         <h3>
           {_.startCase(this.props.readable.type)}: {this.props.readable.title}
         </h3>
-
-        {this.renderQuestions()}
+        {/* <div className="ui items"> */}
+        <div className="ui celled list">{this.renderQuestions()}</div>
         {this.renderNewQuestionButton()}
       </div>
     );

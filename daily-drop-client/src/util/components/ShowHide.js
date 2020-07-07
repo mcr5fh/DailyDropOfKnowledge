@@ -11,7 +11,6 @@ export default class ShowHide extends Component {
           duration={200}
         >
           {this.props.component}
-          {/* <Image size='small' src='https://react.semantic-ui.com/images/leaves/1.png' /> */}
         </Transition>
       </div>
     );
