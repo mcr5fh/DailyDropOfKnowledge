@@ -2,10 +2,10 @@
 
 What is this all about?
 
-The aim of Readbles is to create a user friendly way to facilitate spaced learning for whatever your reading, listening, or watching. The idea is that if you are able to answer a set of questions over an extended, increasing period of time, that you will effectively remember that knowledge forever. 
+The aim of Readbles is to create a user friendly way to facilitate the [Spacing Effect](https://en.wikipedia.org/wiki/Spacing_effect) for whatever your reading, listening, or watching. The idea is that if you are able to answer a set of questions over an extended, increasing period of time, that you will effectively remember that knowledge forever. 
 
-By essentially making your own flash cards, you are applying the Feynman technique
 
+Perhaps this can even be applied to [learning foreign languages](https://journals.sagepub.com/doi/abs/10.1111/j.1467-9280.1993.tb00571.x)? 
 
 For some further readings, check out the articles below
 
@@ -14,6 +14,9 @@ https://max2c.com/learning-how-to-learn/
 https://www.td.org/insights/spaced-learning-an-approach-to-minimize-the-forgetting-curve
 
 https://quantum.country/qcvc
+
+https://onlinelibrary.wiley.com/doi/abs/10.1207/s15516709cog0000_14
+
 
 ## Dev
 See the package specific READMEs for info on running locally and deploying.
