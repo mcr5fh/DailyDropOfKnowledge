@@ -7,8 +7,8 @@ export default class ShowHide extends Component {
       <div className="ui">
         <Transition
           visible={this.props.isVisible}
-          animation="slide up"
-          duration={200}
+          animation="fade left"
+          duration={500}
         >
           {this.props.component}
         </Transition>
