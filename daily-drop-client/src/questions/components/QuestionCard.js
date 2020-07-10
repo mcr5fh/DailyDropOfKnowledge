@@ -50,11 +50,17 @@ class QuestionList extends React.Component {
         {/* </Grid.Column>
             <Grid.Column> */}
         <div className="ui content">
-          <div className="chapter">{question.chapter}</div>
+          {/* <div className="chapter">{question.chapter}</div> */}
           {/* question title should be clickable; owner should have options to edit or delete their own questions */}
-          <b>Question: {question.question}</b>
+          <h3>Question: {question.question}</h3>
           <ShowHide
-            component={<div className="answer">Answer: {question.answer}</div>}
+            component={
+              <div>
+                <h4 className="answer">Answer: {question.answer}</h4>
+                {/* but play with idea of putting chapter beneath this */}
+                {/* <div className="chapter">{question.chapter}</div> */}
+              </div>
+            }
             content="Answer"
             isVisible={this.state.isVisible}
           />
