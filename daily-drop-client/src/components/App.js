@@ -1,21 +1,18 @@
-// Import the React and ReactDOM libraries
-import React, { Component } from "react";
-import { Router, Route, Link, Switch } from "react-router-dom";
+import React from "react";
+import { Router, Route, Switch } from "react-router-dom";
 
-import QuestionCreate from "./questions/components/QuestionCreate";
-import QuestionList from "./questions/components/QuestionList";
 import {
   NEW_QUESTION_ROUTE_FORMAT,
   NEW_QUESTION_COMPONENT,
-} from "./readables/routes/ReadableRoutes";
+} from "../readables/routes/ReadableRoutes";
 
-import ReadableCreate from "./readables/components/ReadableCreate";
-import ReadableList from "./readables/components/ReadableList";
-import ReadableDetails from "./readables/components/ReadableDetails";
+import ReadableCreate from "../readables/components/ReadableCreate";
+import ReadableList from "../readables/components/ReadableList";
+import ReadableDetails from "../readables/components/ReadableDetails";
 
 import Header from "./Header";
 import history from "../history";
-import ReadableEdit from "./readables/components/ReadableEdit";
+import ReadableEdit from "../readables/components/ReadableEdit";
 
 const App = () => {
   return (
