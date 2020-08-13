@@ -37,6 +37,7 @@ Google Sign on config - https://console.developers.google.com/
 
 ### Front end small fix ups/features
 **High priority**
+- Download CSS to be deployed wit package
 - Add a delete button (if owner)
 - Hook up edit button (hooks are there)
 - Create readable: change description to author 

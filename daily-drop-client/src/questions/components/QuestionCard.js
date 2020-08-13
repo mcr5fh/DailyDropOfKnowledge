@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Divider, Image, Transition } from "semantic-ui-react";
 import { Grid } from "semantic-ui-react";
 
-import { getQuestionsForReadable } from "../../readables/actions";
+import { getQuestionsForReadable } from "../../questions/actions";
 import ShowHide from "../../util/components/ShowHide";
 
 // We want this to be a class because we want to call the reducer in

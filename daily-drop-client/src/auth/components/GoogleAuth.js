@@ -2,25 +2,34 @@ import React from "react";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../actions";
 
+// Use some user id for local testing without internet connection
+const NO_CONNECTION_USER_ID = -1;
 const CLIENT_ID =
   "683132884453-293maam7a5v08cgimsmckhqoumugr59k.apps.googleusercontent.com";
 
 class GoogleAuth extends React.Component {
   componentDidMount() {
     //window helps show that gapi is included from our index.html
-    window.gapi.load("client:auth2", () => {
-      window.gapi.client
-        .init({
-          clientId: CLIENT_ID,
-          scope: "email",
-        })
-        .then(() => {
-          this.auth = window.gapi.auth2.getAuthInstance();
-          this.onAuthChange(this.auth.isSignedIn.get());
-          //invoked any time the auth status changes
-          this.auth.isSignedIn.listen(this.onAuthChange);
-        });
-    });
+    try {
+      window.gapi.load("client:auth2", () => {
+        window.gapi.client
+          .init({
+            clientId: CLIENT_ID,
+            scope: "email",
+          })
+          .then(() => {
+            this.auth = window.gapi.auth2.getAuthInstance();
+            this.onAuthChange(this.auth.isSignedIn.get());
+            //invoked any time the auth status changes
+            this.auth.isSignedIn.listen(this.onAuthChange);
+          });
+      });
+    } catch (err) {
+      console.log(
+        "Caught error initializing Google Auth. Signing in as user -1"
+      );
+      this.props.signIn(NO_CONNECTION_USER_ID);
+    }
   }
 
   onAuthChange = (isSignedIn) => {

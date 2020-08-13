@@ -1,9 +1,12 @@
 import LocalDb from "../../api/jsonServer";
+import api from "../../api";
 import history from "../../history";
 import QuestionActionType from "./actionTypes";
 import { DefaultQuestion, Question } from "../model/QuestionModel";
 
-const localDb = new LocalDb();
+const localDb = api;
+
+// const localDb = new LocalDb();
 
 //We want to route the user back to the Stream list
 export const createQuestion = (formValues: any) => {
@@ -38,13 +41,13 @@ export const describeQuestions = (filter: object) => async (dispatch: any) => {
 export const getQuestionsForReadable =  (readableId: string) => async (dispatch: any) => {
   // describeQuestions({ readableId })
   console.log("getQuestionsForReadable: readableId: ", readableId);
-    const response = await localDb.getRecordsForReadble(readableId);
-    
-    console.log("getQuestionsForReadable resp: ", response);
-    dispatch({
-      type: QuestionActionType.GET_QUESTIONS_FOR_READABLE,
-      payload: response.data
-    });
+  const response = await localDb.getRecordsForReadble(readableId);
+  
+  console.log("getQuestionsForReadable resp: ", response);
+  dispatch({
+    type: QuestionActionType.GET_QUESTIONS_FOR_READABLE,
+    payload: response.data
+  });
 };
 
 export const editQuestion = (id: string, formValues: any) => {

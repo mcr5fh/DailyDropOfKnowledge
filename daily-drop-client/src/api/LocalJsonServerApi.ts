@@ -1,16 +1,17 @@
-import axios from "axios";
 import DefaultRestApi from "./RestApi";
 
 const BASE_URL = "http://localhost:3001";
 
 class LocalJsonServerApi extends DefaultRestApi {
-
   //NOTE: I could still have this as a constructor that takes in a URL
   constructor() {
     super(BASE_URL);
   }
 
-  addRecord(recordType: string, recordData: object) {
+  addRecord(recordType: string, recordData: any) {
+    if (recordData.dateAdded == undefined) {
+      recordData.dateAdded = new Date().toISOString();
+    }
     return this.conn.post("/" + recordType, recordData);
   }
 
@@ -30,13 +31,15 @@ class LocalJsonServerApi extends DefaultRestApi {
     try {
       const recordData = await this.conn.get("questions");
       //note: this returns a promise!
-      console.log("getRecordsForReadble: ", recordData);
+      console.log("getRecordsForReadble: recordData:", recordData);
 
-      const filteredData = recordData.filter(
+      const filteredData = recordData.data.filter(
         (question: Record<string, any>) => question.readableId === readableId
       );
       console.log("filtered records: ", recordData);
-      return filteredData;
+      const res = { data: filteredData };
+      recordData.data = filteredData;
+      return recordData;
     } catch (err) {
       console.log("describeRecords err: ", err);
       return [];

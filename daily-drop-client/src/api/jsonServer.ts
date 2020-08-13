@@ -29,10 +29,10 @@ class LocalDb implements Database {
     try {
       const recordData = await this.conn.get("/" + recordType);
       //note: this returns a promise!
-      console.log("server: ", recordData)
+      console.log("Old server class: ", recordData)
       return recordData.data[recordType];
     }catch(err) {
-      console.log("describeRecords err: ", err)
+      console.log("Old server class: describeRecords err: ", err)
       return []
     }
   }
@@ -42,10 +42,10 @@ class LocalDb implements Database {
     try {
       const recordData = await this.conn.get(`readables/${recordId}/info`);
       //note: this returns a promise!
-      console.log("getRecordsForReadble: ", recordData)
+      console.log("Old server class: getRecordsForReadble: ", recordData)
       return recordData;
     }catch(err) {
-      console.log("describeRecords err: ", err)
+      console.log("Old server class: describeRecords err: ", err)
       return []
     }
   }

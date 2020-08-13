@@ -15,10 +15,11 @@ export default (state = {}, action) => {
       return newState;
     case ReadableActionType.DESCRIBE_READABLES:
       //payload will be an array of streams, but we want to save it as a hash
-      console.log("dsec", action.payload);
+      console.log("Readables: Action payload", action.payload);
       //TODO: Don't think we need to map this one
       const readables = action.payload.map((data) => new DefaultReadable(data));
       const readablesMap = _.mapKeys(readables, "id");
+      console.log("Readables Map", readablesMap);
       return { ...state, ...readablesMap };
     default:
       return state;

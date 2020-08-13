@@ -25,17 +25,23 @@ class ReadableList extends React.Component {
   //He called it renderAdmin()
   renderQuestionButtons(readableData) {
     //TODO Add these back
-    // if (readableData.creatorId === this.props.currentUserId) {
+    const ownerButtons = (
+      <Link to={`/readables/edit/${readableData.id}`} className="ui button">
+        Edit Readable
+      </Link>
+      // <button className="ui button negative">Delete (not hooked up)</button>
+    );
+
+    const doesUserOwnReadable =
+      readableData.creatorId === this.props.currentUserId;
+
     return (
       <div className="right floated content">
-        {/* <Link to={`/readables/edit/${readableData.id}`} className="ui button">
-          Edit Readable
-        </Link> */}
         {/* TODO: Move these links to constants or something */}
         <Link to={`/readables/${readableData.id}`} className="ui green button">
           View Questions
         </Link>
-        {/* <button className="ui button negative">Delete</button> */}
+        {doesUserOwnReadable && ownerButtons}
       </div>
     );
     // }
@@ -43,7 +49,12 @@ class ReadableList extends React.Component {
 
   renderList() {
     return this.props.readables
-      .sort((r1, r2) => (r1.dateAdded > r2.dateAdded ? 1 : -1))
+      .sort((r1, r2) => {
+        // Treat undefined as older
+        if (r1.dateAdded === undefined) return 1;
+        if (r2.dateAdded === undefined) return -1;
+        return r1.dateAdded > r2.dateAdded ? 1 : -1;
+      })
       .map((readable) => {
         return (
           <div className="item" key={readable.id}>

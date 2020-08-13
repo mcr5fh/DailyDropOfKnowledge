@@ -11,6 +11,7 @@ export default (state = {}, action) => {
       newState[action.payload.id] = action.payload;
       return newState;
     case QuestionActionType.GET_QUESTIONS_FOR_READABLE:
+      console.log("QuestionReducer: action: ", action);
       const curData = {
         curReadable: new DefaultReadable(action.payload.readable),
         curQuestions: action.payload.questions.map(

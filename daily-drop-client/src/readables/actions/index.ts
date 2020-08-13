@@ -1,11 +1,13 @@
 import history from "../../history";
 
 import LocalDb from "../../api/jsonServer";
+import api from "../../api";
 
 import { DefaultReadable, Readable } from "../model/ReadableModel";
 import ReadableActionType from "./actionTypes";
 
-const localDb = new LocalDb();
+const localDb = api;
+// const localDb = new LocalDb();
 
 /*
 / READABLES
