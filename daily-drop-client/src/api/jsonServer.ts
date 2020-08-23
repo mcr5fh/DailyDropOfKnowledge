@@ -8,6 +8,7 @@ interface Database {
 }
 
 const BASE_URL = 'https://9h119qdin3.execute-api.us-east-1.amazonaws.com/dev/'
+// Local testing const BASE_URL = 'http://localhost:3005/'
 
 class LocalDb implements Database {
   conn: any;
@@ -50,9 +51,10 @@ class LocalDb implements Database {
     }
   }
 
-  updateRecord(recordType: string, recordData: object) {
-    return this.conn.patch("/" + recordType, recordData);
-
+  updateRecord(recordType: string, recordData: any) {
+    const recordId = recordData.id;
+    console.log("Update record : ", recordType, " ", recordId);
+    return this.conn.patch(`/${recordType}/${recordId}`, recordData);
   }
 
 }

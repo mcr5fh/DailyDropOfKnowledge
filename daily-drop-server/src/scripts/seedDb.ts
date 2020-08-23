@@ -10,10 +10,10 @@ import { Question, DefaultQuestion } from "../mongodb/questions/questionsSchema"
 import {
   findDocument,
   insertDocument,
-  InsertDocumentResponse,
   isDbConnected,
   connect
 } from "../mongodb/mongoClient";
+import { InsertDocumentResponse } from "../mongodb/mongoClientDto";
 import { SSL_OP_EPHEMERAL_RSA } from "constants";
 
 const READABLES = "readables";

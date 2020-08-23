@@ -10,7 +10,9 @@ export default (state = {}, action) => {
     case ReadableActionType.GET_READABLE:
     case ReadableActionType.EDIT_READABLE:
       const newState = { ...state };
-      const newReadable = new DefaultReadable(action.payload.readable);
+      console.log("Update reducer payload:", action.payload);
+
+      const newReadable = new DefaultReadable(action.payload);
       newState[newReadable.id] = newReadable;
       return newState;
     case ReadableActionType.DESCRIBE_READABLES:

@@ -51,11 +51,11 @@ export const createReadable = (formValues: object) => {
   export const editReadable = (id: string, formValues: any) => {
     return async (dispatch: any) => {
       //Patch will only update SOME properties, not ALL
-      const response = await localDb.updateRecord(`readables/${id}`, formValues);
+      const response = await localDb.updateRecord(`readables`, formValues);
       console.log("editQuestion response: ", response);
       dispatch({
         type: ReadableActionType.EDIT_READABLE,
-        payload: response.data
+        payload: response.data.updateResponse.updatedDoc
       });
       history.push("/readables");
     };

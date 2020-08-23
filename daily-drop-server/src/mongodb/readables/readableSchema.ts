@@ -9,6 +9,7 @@ export interface Readable {
   readonly yearPublished?: string;
   // DB stuff
   readonly dateAdded: string;
+  readonly lastModified: string;
   readonly creatorId: string;
 }
 
@@ -19,18 +20,20 @@ export class DefaultReadable implements Readable {
   type!: string;
   _id!: string;
   yearPublished?: string;
-  dateAdded: string = new Date().toISOString();
+  dateAdded: string;
+  lastModified: string;
   creatorId: string;
 
-  public constructor(
-   object: any
-  ) {
+  public constructor(object: any) {
     this.title = object.title;
-  this.author = object.author;
-  this.description = object.description;
-  this.type = object.type;
-  this._id = object._id instanceof ObjectId ? object._id : new ObjectId(object._id);
-  this.yearPublished = object.yearPublished;
-  this.creatorId = object.creatorId;
+    this.author = object.author;
+    this.description = object.description;
+    this.type = object.type;
+    this._id =
+      object._id instanceof ObjectId ? object._id : new ObjectId(object._id);
+    this.yearPublished = object.yearPublished;
+    this.dateAdded = object.dateAdded != undefined ? object.dateAdded :  new Date().toISOString();
+    this.lastModified = object.lastModified != undefined ? object.lastModified :  new Date().toISOString();
+    this.creatorId = object.creatorId;
   }
 }

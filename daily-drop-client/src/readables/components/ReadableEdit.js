@@ -19,7 +19,7 @@ class ReadableEdit extends React.Component {
     //Redux form calls preventDefaultForYou
     // event.preventDefault();
     //OnSubmit gets called with the values in the form
-    console.log("Submitting Create Form " + JSON.stringify(formValues));
+    console.log("Submitting Edit Form " + JSON.stringify(formValues));
     const readableId = this.props.readable.id;
     this.props.editReadable(readableId, formValues);
     //After a user creates a readable, we will send them back to the readable list

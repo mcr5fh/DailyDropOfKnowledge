@@ -17,7 +17,7 @@ class QuestionEdit extends React.Component {
     //Redux form calls preventDefaultForYou
     // event.preventDefault();
     //OnSubmit gets called with the values in the form
-    console.log("Submitting Create Form " + JSON.stringify(formValues));
+    console.log("Submitting Edit Form " + JSON.stringify(formValues));
     const questionId = this.props.question.id;
     this.props.editQuestion(questionId, formValues);
     //After a user creates a Question, we will send them back to the Question list

@@ -5,8 +5,8 @@ import { Question, DefaultQuestion } from "./questionsSchema";
 import {
   findDocument,
   insertDocument,
-  InsertDocumentResponse,
 } from "../mongoClient";
+import { InsertDocumentResponse } from "../mongoClientDto";
 
 const QUESTION_COLLECTION_NAME = "questions";
 

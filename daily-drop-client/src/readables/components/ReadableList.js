@@ -26,11 +26,19 @@ class ReadableList extends React.Component {
   renderQuestionButtons(readableData) {
     //TODO Add these back
     // if (readableData.creatorId === this.props.currentUserId) {
+    const ownerButtons = (
+      <Link to={`/readables/edit/${readableData.id}`} className="ui button">
+        Edit Readable
+      </Link>
+      // <button className="ui button negative">Delete (not hooked up)</button>
+    );
+
+    const doesUserOwnReadable =
+      readableData.creatorId === this.props.currentUserId;
     return (
       <div className="right floated content">
-        {/* <Link to={`/readables/edit/${readableData.id}`} className="ui button">
-          Edit Readable
-        </Link> */}
+        {doesUserOwnReadable && ownerButtons}
+
         {/* TODO: Move these links to constants or something */}
         <Link to={`/readables/${readableData.id}`} className="ui green button">
           View Questions

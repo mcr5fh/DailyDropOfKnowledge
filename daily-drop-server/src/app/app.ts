@@ -55,6 +55,9 @@ app.get("/v1/readables", (req: Request, res: Response) =>
 app.post("/v1/readables", (req: Request, res: Response) =>
   route(req, res, readablesApi.insertReadable)
 );
+app.patch("/v1/readables/:readable_id", (req: Request, res: Response) =>
+  route(req, res, readablesApi.updateReadable)
+);
 
 /*
  * Question Endpoints
@@ -76,9 +79,9 @@ app.post("/v1/questions", (req: Request, res: Response) =>
 
 app.set("port", process.env.PORT || 3005);
 
-// const server = app.listen(app.get("port"), () => {
-//   console.log("App is running on http://localhost:%d", app.get("port"));
-// });
+const server = app.listen(app.get("port"), () => {
+  console.log("App is running on http://localhost:%d", app.get("port"));
+});
 
 module.exports = app;
 module.exports.handler = serverless(app);
