@@ -8,12 +8,22 @@ export default (state = {}, action) => {
     case ReadableActionType.CREATE_READABLE:
       return state;
     case ReadableActionType.GET_READABLE:
+      const updatedState = { ...state };
+      console.log("Get reducer payload:", action.payload);
+
+      const readable = new DefaultReadable(action.payload.readable);
+      console.log("Get reducer new readable:", readable);
+      updatedState[readable.id] = readable;
+      console.log("Get reducer payload:", action.payload);
+      return updatedState;
     case ReadableActionType.EDIT_READABLE:
       const newState = { ...state };
       console.log("Update reducer payload:", action.payload);
 
       const newReadable = new DefaultReadable(action.payload);
+      console.log("Update reducer new readable:", newReadable);
       newState[newReadable.id] = newReadable;
+      console.log("Update reducer payload:", action.payload);
       return newState;
     case ReadableActionType.DESCRIBE_READABLES:
       //payload will be an array of streams, but we want to save it as a hash
