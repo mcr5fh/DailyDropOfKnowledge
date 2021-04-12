@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import _ from "lodash";
+import { Form, TextArea } from "semantic-ui-react";
 
 import { getQuestionsForReadable } from "../../questions/actions";
 
@@ -86,6 +87,10 @@ class ReadableDetails extends React.Component {
 
         <div className="ui celled list">{this.renderQuestions()}</div>
         {this.renderNewQuestionButton()}
+        <Form>
+          <h3>Notes</h3>
+          <TextArea placeholder="Tell us more" />
+        </Form>
       </div>
     );
   }
