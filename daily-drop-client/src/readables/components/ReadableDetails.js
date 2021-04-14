@@ -89,7 +89,7 @@ class ReadableDetails extends React.Component {
         {this.renderNewQuestionButton()}
         <Form>
           <h3>Notes</h3>
-          <TextArea placeholder="Tell us more" />
+          <TextArea placeholder="Take notes while you read and make questions after" />
         </Form>
       </div>
     );
